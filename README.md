@@ -27,7 +27,7 @@ Execution
 
 To run the application(needs sudo priviledge to run for installation of mongoDB and other dependencies)
     
-    `./bin/script listOfPhysicalMachinesFile listOfImagesFile typesOfVMsFile`
+    ./bin/script listOfPhysicalMachinesFile listOfImagesFile typesOfVMsFile
     
     Samples for each file can be found in src/sampleFiles
 

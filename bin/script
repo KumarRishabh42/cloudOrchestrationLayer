@@ -1,0 +1,33 @@
+#!/bin/bash 
+
+###installing mongoDB
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/10gen.list 
+sudo apt-get update 
+sudo apt-get install mongodb-10gen 
+sudo service mongodb start 
+
+#######mongoDB installation ends here 
+
+#######installation and pip and related tools
+wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - | sudo python
+
+#######incase curl is not installed
+sudo apt-get install curl
+sudo apt-get install libcurl3 
+
+curl -O https://raw.github.com/pypa/pip/master/contrib/get-pip.py
+sudo python install get-pip.py 
+
+######pip installation ends here
+mongo cloudDB --eval "db.dropDatabase()"
+
+pip install -r ../src/requirements/local.txt
+cd ../src/
+python parser.py $1 $2 $3
+python hello.py
+
+echo $1
+echo $2 
+echo $3
+echo $4

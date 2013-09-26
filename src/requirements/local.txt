@@ -1,0 +1,6 @@
+Flask
+beautifulsoup4
+bpython
+Flask-PyMongo
+pymongo
+bson
